@@ -5,6 +5,6 @@ BigDecimal salaryB = 99999999.99
 Boolean isProgrammer = true
 
 println name + " hase created " + courseCount + " courses."
-println name + " is programmaer? " + isProgrammer
+println name + " is programmaer? " + isProgrammer.toString().capitalize()
 println name + " wishes his salary was " + salary
 println name + " wishes his salary was " + salaryB
