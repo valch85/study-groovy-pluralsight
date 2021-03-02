@@ -28,6 +28,6 @@ User[] users = [new User(firstName: "Bob", lastName: "Dylan"),
                 new User(firstName: "George", lastName: "Harrison"),
                 new User(firstName: "Tom", lastName: "Petty")];
 
-//users.each(user -> println("UserName is ${user.UserName()}"));
+users.each(user -> println("UserName is ${user.UserName()}"));
 users.each(user -> println(user));
 
