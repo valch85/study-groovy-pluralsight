@@ -28,6 +28,9 @@ User[] users = [new User(firstName: "Bob", lastName: "Dylan"),
                 new User(firstName: "George", lastName: "Harrison"),
                 new User(firstName: "Tom", lastName: "Petty")];
 
+//1st variant
 users.each(user -> println("UserName is ${user.UserName()}"));
-users.each(user -> println(user));
+//2nd variant
+users.each{println("UserName is ${it.UserName()}")};
+
 
