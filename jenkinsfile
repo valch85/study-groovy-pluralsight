@@ -11,6 +11,7 @@ node {
         }catch(ex){
             echo 'something whent wrong'
             echo ex.toString();
+            ex.printStackTrace();
             currentBuild.result = 'FAILURE'
         }
         finally{
