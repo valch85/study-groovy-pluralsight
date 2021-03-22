@@ -1,6 +1,12 @@
 import java.io.*;
 import groovy.io.*;
 
-def dir = new File("../4/ConsoleApp1"); //pwd();
+def dir = new File("../ConsoleApp"); //pwd();
 
-dir.eachFileRecurse(FileType.ANY){file -> println(file.name + '\t' + file.length());}
+new File(dir.path + '/releasenotes.txt').withWriter('utf-8')
+{
+    writer -> 
+        dir.eachFileRecurse(FileType.ANY){file -> writer.writeLine(file.name + '\t' + file.length());}
+}
+
+
