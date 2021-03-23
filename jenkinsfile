@@ -1,37 +1,30 @@
-pipeline {
-    stages {
+node {
 
-        stage('SCM') {
-        echo 'Gathering code from version control'
-        git branch: '${branch}', url: 'https://github.com/valch85/study-groovy-pluralsight.git'
-        }
-
-        stage('Build') {
-                steps {
-                    script {
-                        try{
-                            echo 'Building....'
-                            echo 'Build new features'
-                            releasenotes()
-                        }catch(ex){
-                            echo 'something whent wrong'
-                            echo ex.toString();
-                            currentBuild.result = 'FAILURE'
-                        }
-                        finally{
-                            // cleanup
-                        }
-                    }
-                }
-        }
-
-        stage('Test') {
-            echo 'Testing....'
-        }
-
-        stage('Deploy') {
-            echo 'Deploying....'
-        }
-
+    stage('SCM') {
+	echo 'Gathering code from version control'
+    git branch: '${branch}', url: 'https://github.com/valch85/study-groovy-pluralsight.git'
     }
+
+    stage('Build') {
+        try{
+            echo 'Building....'
+            releasenotes()
+        }catch(ex){
+            echo 'something whent wrong'
+            echo ex.toString();
+            currentBuild.result = 'FAILURE'
+        }
+        finally{
+            // cleanup
+        }
+    }
+
+    stage('Test') {
+        echo 'Testing....'
+    }
+
+    stage('Deploy') {
+        echo 'Deploying....'
+    }
+    
 }
